@@ -1,18 +1,17 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <qdm-button type="primary">按钮</qdm-button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+// import QdmButton from '../../packages/button/index.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    // QdmButton
   }
 }
 </script>

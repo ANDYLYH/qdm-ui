@@ -1,24 +1,17 @@
 # qdama-ui
+# 使用
+- $ npm install qdm-ui -S
 
-## Project setup
-```
-npm install
-```
+# 在 main.js 引入并注册
+- import qdm-ui from 'qdm-ui'
+- Vue.use(qdm-ui)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+# 在组件中使用
+<template>
+  <qdm-button>按钮</qdm-button>
+</template>
+<script>
+  export default {
+	  
+  }
+</script>

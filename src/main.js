@@ -3,6 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// 导入组件库
+import qdamaUi from './../packages/index.js'
+// 注册组件库
+Vue.use(qdamaUi)
+
 Vue.config.productionTip = false
 
 new Vue({
