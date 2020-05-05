@@ -3,12 +3,13 @@
   "version": "1.0.2", 
   "private": false,
   "license": "MIT",
-	"main": "lib/qdm-ui.umd.min.js",
+  "style": "lib/theme-chalk/index.css",
+  "main": "lib/qdm-ui.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-	"lib": "vue-cli-service build --target lib --name qdm-ui --dest lib packages/index.js"
+	"lib": "vue-cli-service build --target lib --name qdm-ui --dest lib src/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.4",
