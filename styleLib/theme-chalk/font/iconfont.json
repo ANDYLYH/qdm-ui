@@ -1,0 +1,44 @@
+{
+  "id": "804737",
+  "name": "钱大妈-ui框架icon",
+  "font_family": "qdm-font",
+  "css_prefix_text": "qdm-icon-",
+  "description": "小程序运营系统",
+  "glyphs": [
+    {
+      "icon_id": "609719",
+      "name": "信息",
+      "font_class": "info",
+      "unicode": "e758",
+      "unicode_decimal": 59224
+    },
+    {
+      "icon_id": "9826657",
+      "name": "错误",
+      "font_class": "error",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "5183598",
+      "name": "警告",
+      "font_class": "warning",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "9673157",
+      "name": "关  闭",
+      "font_class": "close",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "14888836",
+      "name": "成功",
+      "font_class": "success",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    }
+  ]
+}

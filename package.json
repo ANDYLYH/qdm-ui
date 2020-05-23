@@ -1,6 +1,6 @@
 {
   "name": "qdm-ui",
-  "version": "1.0.2", 
+  "version": "1.0.2",
   "private": false,
   "license": "MIT",
   "style": "lib/theme-chalk/index.css",
@@ -9,10 +9,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-	"lib": "vue-cli-service build --target lib --name qdm-ui --dest lib src/index.js"
+    "lib": "vue-cli-service build --target lib --name qdm-ui --dest lib src/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "qdm-timeutils": "^1.0.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "vuex": "^3.1.3"
