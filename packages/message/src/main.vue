@@ -12,13 +12,13 @@
       @mouseenter="clearTimer"
       @mouseleave="startTimer"
       role="alert">
-      <!-- <i :class="iconClass" v-if="iconClass"></i>
-      <i :class="typeClass" v-else></i> -->
+      <i :class="iconClass" v-if="iconClass"></i>
+      <i :class="typeClass" v-else></i>
       <slot>
         <p v-if="!dangerouslyUseHTMLString" class="qdm-message__content">{{ message }}</p>
         <p v-else v-html="message" class="qdm-message__content"></p>
       </slot>
-      <i v-if="showClose" class="qdm-message__closeBtn qdm-icon-close" @click="close"></i>
+      <i v-if="showClose" class="qdm-message__closeBtn qdm-font qdm-icon-close" @click="close"></i>
     </div>
   </transition>
 </template>
@@ -52,7 +52,7 @@
     computed: {
       typeClass() {
         return this.type && !this.iconClass
-          ? `qdm-message__icon qdm-icon-${ typeMap[this.type] }`
+          ? `qdm-message__icon qdm-font qdm-icon-${ typeMap[this.type] }`
           : '';
       }
     },

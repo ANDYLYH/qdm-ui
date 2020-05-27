@@ -5,6 +5,7 @@
     :type="nativeType"
     :class="[
       type ? 'qdm-button--' + type : '',
+      buttonSize ? 'qdm-button--' + buttonSize : '',
       {
         'is-loading': loading,
         'is-plain': plain,
@@ -41,6 +42,11 @@
       autofocus: Boolean,
       round: Boolean,
       circle: Boolean
+    },
+    computed: {
+      buttonSize() {
+        return this.size;
+      }
     },
     methods:{
       handleClick(evt) {

@@ -2,6 +2,7 @@ src/
 packages/
 public/
 styleLib/
+examples/
 
 vue.config.js
 babel.config.js

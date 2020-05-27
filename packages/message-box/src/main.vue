@@ -38,15 +38,6 @@
               <p v-else v-html="message"></p>
             </slot>
           </div>
-          <div class="qdm-message-box__input" v-show="showInput">
-           <!-- <qdm-input
-              v-model="inputValue"
-              :type="inputType"
-              @keydown.enter.native="handleInputEnter"
-              :placeholder="inputPlaceholder"
-              ref="input"></qdm-input> -->
-            <div class="qdm-message-box__errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
-          </div>
         </div>
         <div class="qdm-message-box__btns">
           <qdm-button
@@ -78,10 +69,8 @@
 
 <script type="text/babel">
   import Popup from '../../../src/utils/popup';
-  // import Locale from '../../../src/mixins/locale';
   import QdmButton from '../../button';
   import { addClass, removeClass } from '../../../src/utils/dom';
-  // import { t } from ''../../../src/locale';
   import Dialog from '../../../src/utils/aria-dialog';
 
   let messageBox;
@@ -94,7 +83,39 @@
 
   export default {
     mixins: [Popup],
-
+    data() {
+      return {
+        uid: 1,
+        title: undefined,
+        message: '',
+        type: '',
+        iconClass: '',
+        customClass: '',
+        showInput: false,
+        inputValue: null,
+        inputPlaceholder: '',
+        inputType: 'text',
+        inputPattern: null,
+        inputValidator: null,
+        inputErrorMessage: '',
+        showConfirmButton: true,
+        showCancelButton: false,
+        action: '',
+        confirmButtonText: '',
+        cancelButtonText: '',
+        confirmButtonLoading: false,
+        cancelButtonLoading: false,
+        confirmButtonClass: '',
+        confirmButtonDisabled: false,
+        cancelButtonClass: '',
+        editorErrorMessage: null,
+        callback: null,
+        dangerouslyUseHTMLString: false,
+        focusAfterClosed: null,
+        isOnComposition: false,
+        distinguishCancelAndClose: false
+      };
+    },
     props: {
       modal: {
         default: true
@@ -182,9 +203,6 @@
       },
 
       handleAction(action) {
-        if (this.$type === 'prompt' && action === 'confirm' && !this.validate()) {
-          return;
-        }
         this.action = action;
         if (typeof this.beforeClose === 'function') {
           this.close = this.getSafeClose();
@@ -195,28 +213,28 @@
       },
 
       validate() {
-        if (this.$type === 'prompt') {
-          const inputPattern = this.inputPattern;
-          if (inputPattern && !inputPattern.test(this.inputValue || '')) {
-            this.editorErrorMessage = this.inputErrorMessage || t('el.messagebox.error');
-            addClass(this.getInputElement(), 'invalid');
-            return false;
-          }
-          const inputValidator = this.inputValidator;
-          if (typeof inputValidator === 'function') {
-            const validateResult = inputValidator(this.inputValue);
-            if (validateResult === false) {
-              this.editorErrorMessage = this.inputErrorMessage || t('el.messagebox.error');
-              addClass(this.getInputElement(), 'invalid');
-              return false;
-            }
-            if (typeof validateResult === 'string') {
-              this.editorErrorMessage = validateResult;
-              addClass(this.getInputElement(), 'invalid');
-              return false;
-            }
-          }
-        }
+        // if (this.$type === 'prompt') {
+        //   const inputPattern = this.inputPattern;
+        //   if (inputPattern && !inputPattern.test(this.inputValue || '')) {
+        //     this.editorErrorMessage = this.inputErrorMessage || t('el.messagebox.error');
+        //     addClass(this.getInputElement(), 'invalid');
+        //     return false;
+        //   }
+        //   const inputValidator = this.inputValidator;
+        //   if (typeof inputValidator === 'function') {
+        //     const validateResult = inputValidator(this.inputValue);
+        //     if (validateResult === false) {
+        //       this.editorErrorMessage = this.inputErrorMessage || t('el.messagebox.error');
+        //       addClass(this.getInputElement(), 'invalid');
+        //       return false;
+        //     }
+        //     if (typeof validateResult === 'string') {
+        //       this.editorErrorMessage = validateResult;
+        //       addClass(this.getInputElement(), 'invalid');
+        //       return false;
+        //     }
+        //   }
+        // }
         this.editorErrorMessage = '';
         removeClass(this.getInputElement(), 'invalid');
         return true;
@@ -275,39 +293,7 @@
       });
     },
 
-    data() {
-      return {
-        uid: 1,
-        title: undefined,
-        message: '',
-        type: '',
-        iconClass: '',
-        customClass: '',
-        showInput: false,
-        inputValue: null,
-        inputPlaceholder: '',
-        inputType: 'text',
-        inputPattern: null,
-        inputValidator: null,
-        inputErrorMessage: '',
-        showConfirmButton: true,
-        showCancelButton: false,
-        action: '',
-        confirmButtonText: '',
-        cancelButtonText: '',
-        confirmButtonLoading: false,
-        cancelButtonLoading: false,
-        confirmButtonClass: '',
-        confirmButtonDisabled: false,
-        cancelButtonClass: '',
-        editorErrorMessage: null,
-        callback: null,
-        dangerouslyUseHTMLString: false,
-        focusAfterClosed: null,
-        isOnComposition: false,
-        distinguishCancelAndClose: false
-      };
-    }
+
   };
 </script>
 <style>

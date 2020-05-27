@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <qdm-button type="primary" @click="clickFn">primary</qdm-button>
-    <qdm-button type="danger" @click="clickFn">danger</qdm-button>
-    <qdm-button type="default" @click="clickFn">default</qdm-button>
+    <qdm-button type="primary" size="mini" @click="clickFn">primary</qdm-button>
+    <qdm-button type="danger" size="small" @click="clickFn">danger</qdm-button>
+    <qdm-button type="default" @click="message">default</qdm-button>
   </div>
 </template>
 
@@ -18,6 +18,12 @@
 
     },
     methods: {
+      message(){
+        this.$qdmMessage({
+            message:'这是一个文案提示',
+            type:'success'
+        });
+      },
       clickFn() {
         // this.$qdmMessage({
         //     message:'测试',
@@ -31,11 +37,11 @@
         // })
 
         this.$qdmConfirm('是否删除信息','提示',{
-          type:'success',
-          callback:function(){
-            console.log('点击了确定')
-          }
-        })
+          type:'success'}).then(()=>{
+            console.log('点击确定')
+          }).catch(()=>{
+            console.log('点击取消')
+          })
       }
     }
 

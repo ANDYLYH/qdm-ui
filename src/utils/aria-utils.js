@@ -2,14 +2,6 @@ var aria = aria || {};
 
 aria.Utils = aria.Utils || {};
 
-/**
- * @desc Set focus on descendant nodes until the first focusable element is
- *       found.
- * @param element
- *          DOM node for which to find the first focusable descendant.
- * @returns
- *  true if a focusable element is found and focus is set.
- */
 aria.Utils.focusFirstDescendant = function(element) {
   for (var i = 0; i < element.childNodes.length; i++) {
     var child = element.childNodes[i];
@@ -19,14 +11,6 @@ aria.Utils.focusFirstDescendant = function(element) {
   }
   return false;
 };
-
-/**
- * @desc Find the last descendant node that is focusable.
- * @param element
- *          DOM node for which to find the last focusable descendant.
- * @returns
- *  true if a focusable element is found and focus is set.
- */
 
 aria.Utils.focusLastDescendant = function(element) {
   for (var i = element.childNodes.length - 1; i >= 0; i--) {
@@ -38,13 +22,6 @@ aria.Utils.focusLastDescendant = function(element) {
   return false;
 };
 
-/**
- * @desc Set Attempt to set focus on the current node.
- * @param element
- *          The node to attempt to focus on.
- * @returns
- *  true if element is focused.
- */
 aria.Utils.attemptFocus = function(element) {
   if (!aria.Utils.isFocusable(element)) {
     return false;
@@ -84,9 +61,6 @@ aria.Utils.isFocusable = function(element) {
 /**
  * 触发一个事件
  * mouseenter, mouseleave, mouseover, keyup, change, click 等
- * @param  {Element} elm
- * @param  {String} name
- * @param  {*} opts
  */
 aria.Utils.triggerEvent = function(elm, name, ...opts) {
   let eventName;
