@@ -2,9 +2,11 @@ import QdmButton from '../packages/button/index.js';
 import Message from '../packages/message/index.js';
 import Notification from '../packages/notification/index.js';
 import MessageBox from '../packages/message-box/index.js';
+import QdmDialog from '../packages/dialog/index.js';
 const components = [
   QdmButton,
-  MessageBox
+  MessageBox,
+  QdmDialog
 ];
 const install = function(Vue, opts = {}) {
   components.forEach(component => {
@@ -25,6 +27,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   install,
   QdmButton,
+  QdmDialog,
   Message,
   Notification,
   MessageBox

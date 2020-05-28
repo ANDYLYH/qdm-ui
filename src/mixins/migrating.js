@@ -9,13 +9,13 @@ export default {
 
     for (let propName in definedProps) {
       if (definedProps.hasOwnProperty(propName) && props[propName]) {
-        console.warn(`[Element Migrating][${this.$options.name}][Attribute]: ${props[propName]}`);
+        console.warn(`[qdm-ui Migrating][${this.$options.name}][Attribute]: ${props[propName]}`);
       }
     }
 
     for (let eventName in definedEvents) {
       if (definedEvents.hasOwnProperty(eventName) && events[eventName]) {
-        console.warn(`[Element Migrating][${this.$options.name}][Event]: ${events[eventName]}`);
+        console.warn(`[qdm-ui Migrating][${this.$options.name}][Event]: ${events[eventName]}`);
       }
     }
   },

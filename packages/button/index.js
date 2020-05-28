@@ -1,8 +1,8 @@
-import ElButton from './index.vue';
+import qdmButton from './index.vue';
 
 /* istanbul ignore next */
-ElButton.install = function(Vue) {
-  Vue.component(ElButton.name, ElButton);
+qdmButton.install = function(Vue) {
+  Vue.component(qdmButton.name, qdmButton);
 };
 
-export default ElButton;
+export default qdmButton;
